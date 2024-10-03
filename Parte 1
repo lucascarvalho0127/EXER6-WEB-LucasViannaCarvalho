@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Bem-Vindo!</title>
+</head>
+<body>
+    <h1>Bem-Vindo!</h1>
+    <form onsubmit="verificarNome(event)">
+        <label for="nome">Digite seu nome:</label><br><br>
+        <input type="text" id="nome" placeholder="Seu nome aqui">
+        <input type="submit" value="Clique aqui">
+        <p id="mensagem"></p>
+    </form>
+    <script src="script.js"></script>
+</body>
+</html>
+
+
+Java:
+
+function verificarNome(event) {
+    event.preventDefault();
+    const nome = document.getElementById("nome").value;
+    let possuiCaractere = false;
+
+    for (let i = 0; i < nome.length; i++) {
+        if (nome[i] !== ' ') {
+            possuiCaractere = true;
+            break;
+        }
+    }
+
+    if (possuiCaractere) {
+        document.getElementById("mensagem").innerText = 'Olá, seja bem-vindo(a) a pagina do Lucas, ' + nome;
+    } else {
+        document.getElementById("mensagem").innerText = 'Por favor, digite seu nome';
+    }
+}
